@@ -1,0 +1,129 @@
+        <div class="page profile-page" style="padding-bottom:0">
+            <div class="pagecontent"> 
+                <div class="bg-light lter b-b wrapper-md mb-10">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="font-thin h3 m-0">BG</h1>
+                                <small class="text-muted">Bienvenido al administrador</small>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                     <div class="col-md-12"> 
+                        <section class="boxs boxs-simple"> 
+                            <div class="boxs-body p-0">
+                                <div role="tabpanel"> 
+                                    <ul class="nav nav-tabs tabs-dark-t" role="tablist">
+                                        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Parallax - Cifras</a></li>
+                                    </ul>
+                                    
+                                    <div class="tab-content">
+                                         <div role="tabpanel" class="tab-pane active" id="general">
+                                            <div class="wrap-reset">
+                                                <?php echo Form::open(); ?>
+                                                <form class="profile-settings">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Hemos realizado</strong> más de:</h4>
+                                                            <p>Cifras de interes</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconoa.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valora','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textoa','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconob.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valorb','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textob','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconoc.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valorc','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textoc','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconod.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valord','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textod','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconoe.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valore','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textoe','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-1">
+                                                            <?php echo Html::img("iconof.png","","width='90%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Valor *</label>
+                                                            <?php echo Form::text('parallax.valorf','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-8">
+                                                            <label for="last-name">Titulo *</label>
+                                                            <?php echo Form::text('parallax.textof','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                                               
+                                                    <hr>
+                                                    <?php echo Form::hidden('parallax.id') ?>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <?php echo Html::link("admin/config","Cancelar","class='btn btn-raised btn-default'") ?>
+                                                            <button type="submit" value="submit" class="btn btn-raised btn-primary">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <?php echo Form::close(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>  

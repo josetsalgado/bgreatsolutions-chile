@@ -1,0 +1,60 @@
+<div class="page static-page-tables"> 
+            <!-- bradcome -->
+            <div class="bg-light lter b-b wrapper-md mb-10">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <h1 class="font-thin h3 m-0">BG</h1>
+                        <small class="text-muted">Bienvenido al administrador</small> </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?php echo Html::link("admin/agregar_servicio",'<i class="glyphicon glyphicon-plus"></i> Agregar Servicio','class="btn btn-raised btn-success fileinput-button"') ?>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <section class="boxs ">
+                        <div class="boxs-header dvd dvd-btm">
+                            <h1 class="custom-font"><strong>Listado - </strong> Soluciones</h1>
+                            
+                        </div>
+                        <div class="boxs-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-middle">
+                                    <thead>
+                                        <tr>
+                                      
+                                            <th>Imagen</th>
+                                            <th>Titulo</th>
+                                            <th>Items</th>
+                                            <th style="width:15%">Operaciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($servicios as $value) {
+                                            echo
+                                            '
+                                             <tr>
+                                            <td>'.Html::img($value->img,"","width='50px' style='border-radius:0px !important'").'</td>
+                                            <td><span class="truncate">'.$value->titulo.'</span></td>
+                                            <td class="btn-operation">'.Html::link("admin/items/$value->id",'<b style="color:#333">Listado</b>','class="btn btn-sm btn-warning"').'</td>
+                                            <td class="btn-operation">
+                                                '.Html::link("admin/editar_servicio/$value->id",'<i class="fa fa-edit"></i>','class="btn btn-sm btn-success"').'
+                                                '.Js::link("admin/deleteservicio/$value->id",'<span class="btn btn-sm btn-danger"><i class="fa fa-trash-o"></i></span>',"¿Esta segur@ que desea eliminar este servicio?").'    
+                                            </td>
+                                            </tr>
+                                        ';
+                                        } ?>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>

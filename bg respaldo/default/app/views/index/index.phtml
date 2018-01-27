@@ -1,0 +1,1075 @@
+<?php View::content() ?>
+<?php 
+
+     if ( isset($_POST['con_name']) && isset($_POST['con_email']) && isset($_POST['con_phone']) && isset($_POST['con_message']) && filter_var($_POST['con_email'], FILTER_VALIDATE_EMAIL) ) {
+            if($_POST['g-recaptcha-response'] != ''){
+
+                $headers = 'From: ' . $_POST["con_name"] . '<' . $_POST["con_email"] . '>' . "\r\n" .
+                'X-Mailer: PHP/' . phpversion();
+
+                $message = sprintf( "Nombre: %s\nEmail: %s\nTelefono: %s\nEmpresa: %s\nCargo: %s\nPais: %s\nServicio: %s\n\nMensaje: %s", $_POST['con_name'], $_POST['con_email'], $_POST['con_phone'],$_POST['con_empresa'], $_POST['con_cargo'],$_POST['pais'],$_POST['servicio'],$_POST['con_message'] );
+                $success = mail( $info->correoa, "Mensaje de Contacto", $message, $headers);
+                if ($success) {
+                    ?>
+                    <script>
+                    alert("Mensaje enviado satisfactoriamente");
+                     window.location="http://bgreatsolutions.com"
+                    </script>
+                    
+                    <?php
+                }else{
+                     ?>
+                    <script>
+                    alert("Error, por favor intente nuevamente");
+                     window.location="http://bgreatsolutions.com"
+                    </script>
+                    <?php
+                }
+            }else{
+               ?>
+                    <script>
+                    alert("Debe marcar el catcha");
+                     window.location="http://bgreatsolutions.com"
+                    </script>
+                   
+                    <?php 
+            }
+
+  
+    }
+?>
+
+
+<section class="banner2" id="home">
+    <div class="mainSlider">
+        <div class="tp-banner1">
+            <ul>
+                <?php foreach ($banners as $banner):?>
+                        <li data-transition="cube" data-slotamount="7" data-masterspeed="500" >
+                            <?php echo Html::img($banner->img,"",'alt="" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat"') ?>
+                                <?php if (!$banner->titulob==''): ?>
+                                <div class="tp-caption sfb text-right homeOneSlider"
+                                data-x="center"
+                                data-hoffset="0"
+                                data-y="370"
+                                data-voffset="0"
+                                data-speed="800"
+                                data-start="1200"
+                                data-easing="Power4.easeOut">
+                                    <div class="slid2s">
+                                        <h2><?php echo $banner->tituloa ?></h2>
+                                    </div>
+                                </div>
+                                <div class="tp-caption sfb text-right homeOneSlider"
+                                data-x="center"
+                                data-hoffset="0"
+                                data-y="400"
+                                data-voffset="0"
+                                data-speed="1000"
+                                data-start="1500"
+                                data-easing="Power4.easeOut">
+                                    <div class="slid2s">
+                                        <h1><?php echo $banner->titulob ?></h1>
+                                    </div>
+                                </div>
+                                <div class="tp-caption sfb text-right homeOneSlider"
+                                data-x="center"
+                                data-hoffset="0"
+                                data-y="550"
+                                data-voffset="0"
+                                data-speed="1200"
+                                data-start="1800"
+                                data-easing="Power4.easeOut">
+                                    <div class="slid2s">
+                                        <p><?php echo $banner->texto ?></p>
+                                        <?php if (!$banner->btna=='' and !$banner->btnb==''): ?>
+                                            <div style="margin-top:20px">
+                                                <a href="<?php echo $banner->urla ?>" class="btn-morado" style="margin-right:10px"><?php echo $banner->btna ?></a>
+                                                <a href="<?php echo $banner->urlb ?>" class="btn-amarillo"><?php echo $banner->btnb ?></a>
+                                            </div>
+                                        <?php endif ?>
+                                    </div>
+                                </div>
+                                <?php else: ?>
+                                    <div class="tp-caption sfb text-right homeOneSlider"
+                                    data-x="center"
+                                    data-hoffset="0"
+                                    data-y="480"
+                                    data-voffset="0"
+                                    data-speed="800"
+                                    data-start="1200"
+                                    data-easing="Power4.easeOut">
+                                        <div class="slid2s">
+                                            <h2><?php echo $banner->tituloa ?></h2>
+                                        </div>
+                                    </div>
+                                    <div class="tp-caption sfb text-right homeOneSlider"
+                                    data-x="center"
+                                    data-hoffset="0"
+                                    data-y="530"
+                                    data-voffset="0"
+                                    data-speed="1200"
+                                    data-start="1800"
+                                    data-easing="Power4.easeOut">
+                                        <div class="slid2s">
+                                            <p><?php echo $banner->texto ?></p>
+                                        <?php if (!$banner->btna=='' and !$banner->btnb==''): ?>
+                                            <div style="margin-top:20px">
+                                                <a href="<?php echo $banner->urla ?>" class="btn-morado" style="margin-right:10px"><?php echo $banner->btna ?></a>
+                                                <a href="<?php echo $banner->urlb ?>" class="btn-amarillo"><?php echo $banner->btnb ?></a>
+                                            </div>
+                                        <?php endif ?>
+                                        </div>
+                                    </div>
+                                <?php endif ?>
+                        </li>
+
+                <?php endforeach ?>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="callToAction2" style="padding-top:50px;background:#F38209">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-9 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <div class="callToActionContent2">
+                    <h3 class="white">12 años de éxito y <span style="color:#3E4095">crecimiento</span></h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <a href="#contact" class="btn-black" style="float:right">Contactar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="nosotros" class="comonSection whychoose overlay-morado" style="background: url(img/bienvenido.jpg) no-repeat center center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h2 class="sectionTitle2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms" style="color:#fff;margin-bottom:0">
+                    Sobre Nosotros
+                </h2>
+                <h3 style="color:#F6A800;font-family:'Montserrat-Medium';margin-bottom:50px">¿Por qué elegirnos?</h3> 
+            </div>
+            <div class="row">
+            <div class="col-md-5 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <div class="video-welcome" style="background: url(<?php echo 'img/'.$nosotros->img_video ?>) no-repeat center center / cover;min-height:250px">
+                    <a href="<?php echo $nosotros->url_video ?>" class="videoLink vidPopUp">
+                    <?php echo Html::img("images/video.png",'','alt="" style="position:absolute;left:35%;top:35%"') ?></a>
+                </div>
+            </div>
+            <div class="col-md-7 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms" style="padding-top:10px">
+                <?php echo $nosotros->text_right ?>
+            </div>
+        </div>
+        <div class="row" style="padding-top:20px">
+            <div class="col-md-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+               <?php echo $nosotros->text_center ?>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="valores" class="comonSection welcome2" style="background:#F5FAFF">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h2 class="sectionTitle2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms" style="color:#384798;margin-bottom:20px">
+                   Misión, Visión y Valores 
+                </h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wow fadeIn color-gris moverright" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h4 class="title-valores" style="color:#AD2168;">Misión</h4> 
+                <p><?php echo $nosotros->mision ?></p>                      
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center wow fadeIn color-gris" data-wow-duration="700ms" data-wow-delay="300ms">
+                <?php echo Html::img("fondo-valores.png","","class='img-valores'") ?>
+                <?php echo Html::img($nosotros->img_valora,"","class='img-valor'") ?>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wow fadeIn color-gris moverleft" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h4 class="title-valores" style="color:#F38209;">Visión</h4> 
+                <p><?php echo $nosotros->vision ?></p>
+            </div>
+        </div>
+        <div class="row">    
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6 text-center wow fadeIn color-gris top-20 bottom-20" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h4 class="title-valores" style="color:#1ABC9C;">Valores</h4> 
+                <p>Trabajo en Equipo, Pasión, Excelencia, Compromiso, Ética, Innovación, Entusiasmo</p>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+
+    </div>
+</section>
+
+<section class="comonSection funfacts2 ffSection overlay-naranja" style="background: url(img/cifras.jpg) no-repeat center center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h2 class="sectionTitle2 white">
+                    Hemos realizado más de:
+                </h2>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconoa.png") ?>
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valora); ?>"><?php echo $parallax->valora ?></h2>
+                    <h4><?php echo $parallax->textoa ?></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconob.png") ?>
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valorb); ?>"><?php echo $parallax->valorb ?></h2>
+                    <h4><?php echo $parallax->textob ?></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconoc.png") ?>
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valorc); ?>"><?php echo $parallax->valorc ?></h2>
+                    <h4><?php echo $parallax->textoc ?></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconod.png") ?>                    
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valord); ?>"><?php echo $parallax->valord ?></h2>
+                    <h4><?php echo $parallax->textod ?></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconoe.png") ?>
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valore); ?>"><?php echo $parallax->valore ?></h2>
+                    <h4><?php echo $parallax->textoe ?></h4>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                <div class="counters counters2 text-center">
+                    <?php echo Html::img("iconof.png") ?>
+                    <h2 class="timer" data-counter="<?php echo str_replace(",", "", $parallax->valorf); ?>"><?php echo $parallax->valorf ?></h2>
+                    <h4><?php echo $parallax->textof ?></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="trabajobg" class="comonSection funfacts2 team" style="background:#F5F5F6">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                <h2 class="separate sectionTitle2 wow fadeInUp text-center" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-bottom:30px;color:#D45E03">
+                    Todo comienza por ti 
+                    <small style="color:#000;margin-bottom:0">¿Quieres formar parte de esta familia?</small>
+                </h2>
+            </div>
+        </div>
+               <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1 text-center">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                <?php foreach ($equipos as $equipo_completo): ?>
+                                        <div class="col-lg-4 col-md-4 fol1" style="margin-bottom:20px">
+                                            <div class="singleFolio text-left">
+                                                <?php echo Html::img($equipo_completo->img) ?>
+                                                <div class="folioHover" style="padding-right:30px">
+                                                    <h2 style="color:#000"><?php echo $equipo_completo->nombre ?></h2>
+                                                    <a class="mores" href="#" data-toggle="modal" data-target="#<?php echo str_replace(" ", "", $equipo_completo->nombre)?>" style="background: url(img/images/right_arrow.png) no-repeat center center #2B3CA5;"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                <?php endforeach ?>
+                                </div>
+                                <div class="col-lg-12">
+                               <div class="col-lg-4 col-md-4 fol1"></div>
+                               <div class="col-lg-4 col-md-4 fol1">
+                                    <a href="#" class="btn-morado2" style="margin-top:20px;margin-bottom:20px" data-toggle="modal" data-target="#Grupobg">Postúlate ahora</a>
+                                </div>
+                                <div class="col-lg-4 col-md-4 fol1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  
+    </div>
+</section>
+
+
+            <section  id="soluciones" class="comonSection whychoose overlay-morado2 comonSection funfacts2" style="background: url(img/fondo.jpg) repeat center center;padding-bottom:180px">
+                <div class="container">
+                     <div class="row">
+                        <div class="col-lg-12 text-center separate sectionTitle2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                             <small style="color:#FFB200;margin-bottom:0">Nuestras</small>
+                            <h2 class="sectionTitle2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms" style="color:#fff;margin-bottom:40px">
+                                Soluciones
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-10 col-lg-offset-1 text-center">
+                            <div class="row">
+                                <?php $i=1; ?>
+                                <?php foreach ($servicios as $servicio): ?>
+                                        <div class="col-lg-4 col-md-4 fol1">
+                                            <div class="singleFolio text-left">
+                                                <?php echo Html::img($servicio->img) ?>
+                                                <div class="folioHover" style="padding-right:30px">
+                                                    <h2><?php echo $servicio->titulo ?></h2>
+                                                 
+                                                    <a class="mores" href="#" data-toggle="modal" data-target="#Servicio<?php echo $i?>"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php $i++ ?>
+                                <?php endforeach ?>
+                               <div class="col-lg-4 col-md-4 fol1"></div>
+                               <div class="col-lg-4 col-md-4 fol1">
+                                    <a href="#contact" class="btn-amarillo2" style="margin-top:20px;margin-bottom:20px">Solicitar ahora</a>
+                                </div>
+                                <div class="col-lg-4 col-md-4 fol1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-8 text-center wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+
+                            <h3 class="separate" style="color:#F7C48C">
+                                <small style="color:#fff">Solicita ya nuestros servicios!!!</small>
+                               <span style="font-size:16px"> Trabajamos para generar un cambio positivo en los procesos de apoyo de las organizaciones mediante el desarrollo, diseño y entrega de soluciones de consultoría de acuerdo a las necesidades de clientes de diferentes industrias, utilizando metodologías vanguardistas.</span>
+                            </h3>
+
+                            
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="testimonial" id="testimonios" style="background: url(img/images/bg/10.jpg) no-repeat center center;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 quoteInsHolder wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <div class="quoteIcon"><img src="img/testimonio.png" alt=""/></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <h3 style="color:#fff;font-family:'Montserrat-Medium'">Testimonios</h3> 
+                            <h2 class="separate sectionTitle2" style="margin-bottom:20px;color:#D45E03">
+                                <small style="color:#F6A800;margin-bottom:0;">Descubre lo que dicen <br> nuestros clientes</small>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <div id="testimonialSlider" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-inner" style="margin-top:0">
+                                    <?php foreach ($testimonio_activo as $activo): ?>
+                                    <div class="item active">
+                                        <div class="testiItem">
+                                            <div class="col-md-12">
+                                                <!--<div class="col-md-2"></div>-->
+                                                <div class="col-md-12" style="visibility: visible;margin-bottom:40px;">
+                                                    <!--<div class="video-welcome" style="background: url(<?php //echo 'img/'.$activo->img_video ?>) no-repeat center center / cover;min-height:150px;margin-bottom:20px">
+                                                        <a href="<?php //echo $activo->url ?>" class="videoLink vidPopUp">
+                                                        <?php //echo Html::img("images/video.png",'','alt="" style="position:absolute;left:45%;top:25%;width:50px;height:50px"') ?></a>
+                                                       
+                                                    </div>-->
+                                                    <span style="color:#fff;"><?php echo $activo->texto ?></span>
+                                                </div>
+                                                <!--<div class="col-md-2"></div>-->
+                                            </div>
+                                           <p>
+                                                <!--<span>“</span> <?php //echo $activo->texto ?><span>”</span>-->
+                                                <h5><?php echo $activo->nombre ?></h5>
+                                                <h6><?php echo $activo->cargo ?> - <?php echo $activo->empresa ?></h6>
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                    <?php endforeach ?>
+                                    <?php foreach ($testimonios as $dicen): ?>
+                                    <div class="item">
+                                        <div class="testiItem"> 
+                                          <div class="col-md-12">
+                                                <!--<div class="col-md-2"></div>-->
+                                                <div class="col-md-12" style="visibility: visible;margin-bottom:40px;">
+                                                    <!--<div class="video-welcome" style="background: url(<?php //echo 'img/'.$dicen->img_video ?>) no-repeat center center / cover;min-height:150px;margin-bottom:20px">
+                                                        <a href="<?php //echo $dicen->url ?>" class="videoLink vidPopUp">
+                                                        <?php //echo Html::img("images/video.png",'','alt="" style="position:absolute;left:45%;top:25%;width:50px;height:50px"') ?></a>
+                                                       
+                                                    </div>-->
+                                                    <span style="color:#fff;"><?php echo $dicen->texto ?></span>
+                                                </div>
+                                                <!--<div class="col-md-2"></div>-->
+                                            </div>
+                                          <p>
+                                                <!--<span>“</span> <?php //echo $dicen->texto ?><span>”</span>-->
+                                                <h5><?php echo $dicen->nombre ?></h5>
+                                                <h6><?php echo $dicen->cargo ?> - <?php echo $dicen->empresa ?></h6>
+                                            </p>
+                                           
+                                        </div>
+                                    </div>
+                                    <?php endforeach ?>
+                                 
+                                   
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li data-target="#testimonialSlider" data-slide-to="0" class="active">
+                                        <?php echo Html::img($activo->img) ?>
+                                    </li>
+                                    <?php $contador = 1; ?>
+                                    <?php foreach ($testimonios_img as $dicen_img): ?>
+                                
+                                    <li data-target="#testimonialSlider" data-slide-to="<?php echo $contador ?>">
+                                        <?php echo Html::img($dicen_img->img) ?>
+                                    </li>
+                            
+                                     <?php $contador++ ?>
+                                    <?php endforeach ?>
+ 
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="comonSection funfacts2 portfolios2" id="clientes">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <h2 class="separate sectionTitle2 wow fadeInUp text-center" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-bottom:0px;color:#2B3CA5">
+                                <small style="color:#000;margin-bottom:0">Nuestros</small>
+                                Clientes
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="folioNav folioNav2">
+                                <ul id="filter">
+                                    <li class="active" data-group="all">Todos</li>
+                                    <?php foreach ($categorias as $categoria): ?>
+                                        <li data-group="<?php echo $categoria->label ?>"><?php echo $categoria->nombre ?></li>
+                                    <?php endforeach ?>
+                                </ul>
+
+            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <div class="row folioGrid2" id="folioGrid2">
+                        <?php foreach ($clientes as $cliente): ?>
+                            <?php $cat = Load::model("categorias")->find_by_id($cliente->categorias_id); ?>
+                            <div class="folioItem2 col-md-2 col-xs-4" data-groups='["all", "<?php echo $cat->label ?>"]'>
+                                    <?php echo Html::img($cliente->img,"",'style="width:100%;margin-bottom:10px" alt="'.$cliente->nombre.'"') ?>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                </div>
+            </section>
+
+
+              <section class="comonSection funfacts2" id="blog" style="background:#F6A800">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <h2 class="separate sectionTitle2 wow fadeInUp text-center" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-bottom:40px;color:#AD2168">
+                                <small style="color:#000;margin-bottom:0">Noticias</small>
+                                Blog
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom:40px">
+                    <?php foreach ($blog as $noticia): ?>
+                        <?php $cat_blog = Load::model("categoriablog")->find_by_id($noticia->categoriablog_id); ?>
+                        <div class="col-lg-6">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                <?php echo Html::img($noticia->img,"",'width="100%"') ?>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                               <div class="nobtn-morado"><?php echo $cat_blog->nombre ?></div>
+                               <h3 style="color:#AD2168"><?php echo $noticia->titulo ?><br>
+                               <small style="font-weight:700;color:#4B4B4D"><?php echo $noticia->fecha ?></small>
+                               </h3>
+                               <p style="color:#4B4B4D"><?php echo $noticia->descripcion ?></p>
+                               <?php echo Html::link("blog/noticias/$noticia->id","Leer más",'class="btn-blancomorado" style="margin-top:10px;margin-bottom:10px"') ?>
+                            </div>
+                        </div>
+                    <?php endforeach ?>
+                    </div>
+                        
+                </div>
+            </section>
+
+
+
+            <section class="comonSection funfacts2 contactSection2" id="contact">
+                <div class="container">
+                    <div class="row">
+                         <div class="col-lg-12 text-center wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                            <h3 style="color:#AD2168;font-family:'Montserrat-Medium'">Comunicate con Nosotros</h3> 
+                            <h2 class="sectionTitle2 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms" style="color:#4B4B4D;margin-bottom:10px">
+                                Contacto
+                            </h2>
+                            <p style="color:#000">Estimado usuario, si deseas contactarnos, déjanos tus datos por esta vía:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+
+                            <div class="bootsTab">
+                                <div class="tab-content">
+                                <ul class="stellarTab" role="tablist">
+                                    <li role="presentation" class="active"><a href="#vzla" aria-controls="vzla" role="tab" data-toggle="tab"><?php echo Html::img("vzla.png","","width='80px'") ?></a></li>
+                                    <li role="presentation"><a href="#usa" aria-controls="usa" role="tab" data-toggle="tab"><?php echo Html::img("usa.png","","width='80px'") ?></a></li>
+                                    <li role="presentation"><a href="#panama" aria-controls="panama" role="tab" data-toggle="tab"><?php echo Html::img("panama.png","","width='80px'") ?></a></li>
+                                     <li role="presentation"><a href="#chile" aria-controls="chile" role="tab" data-toggle="tab"><?php echo Html::img("chile.png","","width='80px'") ?></a></li>
+                                </ul>
+                                    <div role="tabpanel" class="tab-pane fade in active" id="vzla">
+                                            <div class="conInfos2" style="margin-top:40px">
+                                                <p><i class="fa fa-map-marker"></i>Ubicación - Venezuela:</p><br>
+
+                                                <?php 
+                                                    $direccion_vzla = $info->direccion_vzla;
+
+                                                    $telfc_sin_punto = str_replace(".", "", $info->telfc);
+                                                    $telfc_sin_parentesis = str_replace("(", "", $telfc_sin_punto);
+                                                    $telfc_sin_parentesisb = str_replace(")", "", $telfc_sin_parentesis);
+                                                    $telfc_final = str_replace("-", "", $telfc_sin_parentesisb);
+
+                                                    $telfcc_sin_punto = str_replace(".", "", $info->telfcc);
+                                                    $telfcc_sin_parentesis = str_replace("(", "", $telfcc_sin_punto);
+                                                    $telfcc_sin_parentesisb = str_replace(")", "", $telfcc_sin_parentesis);
+                                                    $telfcc_final = str_replace("-", "", $telfcc_sin_parentesisb);
+                                                 ?>
+                                                <?php echo $direccion_vzla ?>
+                                                <br><br>
+                                                <p><i class="fa fa-phone"></i>Teléfonos:</p><br>
+                                                <a href="tel:<?php echo $telfc_final ?>"><?php echo $info->telfc ?></a> 
+
+                                                <?php if (!$info->telfcc==''): ?>
+                                                    / <a href="tel:<?php echo $telfcc_final ?>"><?php echo $info->telfcc ?></a> 
+                                                <?php endif ?>
+
+                                                <br><br>
+                                                <p><i class="fa fa-envelope-o"></i>E-mail:</p><br>
+
+                                                <a href="mailto:<?php echo $info->emaila ?>"><?php echo $info->emaila ?></a> <br>
+
+                                                 <?php if (!$info->emailaa==''): ?>
+                                                          <a href="mailto:<?php echo $info->emailaa ?>"><?php echo $info->emailaa ?></a>  
+                                                <?php endif ?>
+
+
+
+                                            </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="usa">
+                                       <div class="conInfos2" style="margin-top:40px">
+                                                <p><i class="fa fa-map-marker"></i>Ubicación USA:</p><br>
+
+                                                <?php 
+                                                    $direccion_usa = $info->direccion_usa;
+
+                                                    $telfd_sin_punto = str_replace(".", "", $info->telfd);
+                                                    $telfd_sin_parentesis = str_replace("(", "", $telfd_sin_punto);
+                                                    $telfd_sin_parentesisb = str_replace(")", "", $telfd_sin_parentesis);
+                                                    $telfd_final = str_replace("-", "", $telfd_sin_parentesisb);
+
+                                                    $telfdd_sin_punto = str_replace(".", "", $info->telfdd);
+                                                    $telfdd_sin_parentesis = str_replace("(", "", $telfdd_sin_punto);
+                                                    $telfdd_sin_parentesisb = str_replace(")", "", $telfdd_sin_parentesis);
+                                                    $telfdd_final = str_replace("-", "", $telfdd_sin_parentesisb);
+                                                 ?>
+                                                <?php echo $direccion_usa ?>
+                                                <br><br>
+                                                <p><i class="fa fa-phone"></i>Teléfonos:</p><br>
+                                                <a href="tel:<?php echo $telfd_final ?>"><?php echo $info->telfd ?></a> 
+
+                                                <?php if (!$info->telfdd==''): ?>
+                                                    / <a href="tel:<?php echo $telfdd_final ?>"><?php echo $info->telfdd ?></a> 
+                                                <?php endif ?>
+
+                                                <br><br>
+                                                <p><i class="fa fa-envelope-o"></i>E-mail:</p><br>
+
+                                                <a href="mailto:<?php echo $info->emailb ?>"><?php echo $info->emailb ?></a> <br>
+                                                 
+                                                 <?php if (!$info->emailbb==''): ?>
+                                                          <a href="mailto:<?php echo $info->emailbb ?>"><?php echo $info->emailbb ?></a>  
+                                                <?php endif ?>                          
+                                        
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="panama">
+                                        <div class="conInfos2" style="margin-top:40px">
+                                                <p><i class="fa fa-map-marker"></i>Ubicación Panamá:</p><br>
+
+                                                <?php 
+                                                    $direccion_panama = $info->direccion_panama;
+
+                                                    $telfe_sin_punto = str_replace(".", "", $info->telfe);
+                                                    $telfe_sin_parentesis = str_replace("(", "", $telfe_sin_punto);
+                                                    $telfe_sin_parentesisb = str_replace(")", "", $telfe_sin_parentesis);
+                                                    $telfe_final = str_replace("-", "", $telfe_sin_parentesisb);
+
+                                                    $telfee_sin_punto = str_replace(".", "", $info->telfee);
+                                                    $telfee_sin_parentesis = str_replace("(", "", $telfee_sin_punto);
+                                                    $telfee_sin_parentesisb = str_replace(")", "", $telfee_sin_parentesis);
+                                                    $telfee_final = str_replace("-", "", $telfee_sin_parentesisb);
+                                                 ?>
+                                                <?php echo $direccion_panama ?>
+                                                <br><br>
+                                                <p><i class="fa fa-phone"></i>Teléfonos:</p><br>
+                                                <a href="tel:<?php echo $telfe_final ?>"><?php echo $info->telfe ?></a> 
+
+                                                <?php if (!$info->telfee==''): ?>
+                                                    / <a href="tel:<?php echo $telfee_final ?>"><?php echo $info->telfee ?></a> 
+                                                <?php endif ?>
+
+                                                <br><br>
+                                                <p><i class="fa fa-envelope-o"></i>E-mail:</p><br>
+
+                                                <a href="mailto:<?php echo $info->emailc ?>"><?php echo $info->emailc ?></a> <br>
+                                                 
+                                                 <?php if (!$info->emailcc==''): ?>
+                                                          <a href="mailto:<?php echo $info->emailcc ?>"><?php echo $info->emailcc ?></a>  
+                                                <?php endif ?>  
+
+                                            </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="chile">
+                                        <div class="conInfos2" style="margin-top:40px">
+                                                <p><i class="fa fa-map-marker"></i>Ubicación Chile:</p><br>
+
+                                                <?php 
+                                                    $direccion_chile = $info->direccion_chile;
+
+                                                    $telff_sin_punto = str_replace(".", "", $info->telff);
+                                                    $telff_sin_parentesis = str_replace("(", "", $telff_sin_punto);
+                                                    $telff_sin_parentesisb = str_replace(")", "", $telff_sin_parentesis);
+                                                    $telff_final = str_replace("-", "", $telff_sin_parentesisb);
+
+                                                    $telfff_sin_punto = str_replace(".", "", $info->telfff);
+                                                    $telfff_sin_parentesis = str_replace("(", "", $telfff_sin_punto);
+                                                    $telfff_sin_parentesisb = str_replace(")", "", $telfff_sin_parentesis);
+                                                    $telfff_final = str_replace("-", "", $telfff_sin_parentesisb);
+                                                 ?>
+                                                <?php echo $direccion_chile ?>
+                                                <br><br>
+                                                <p><i class="fa fa-phone"></i>Teléfonos:</p><br>
+                                                <a href="tel:<?php echo $telff_final ?>"><?php echo $info->telff ?></a> 
+
+                                                <?php if (!$info->telfff==''): ?>
+                                                    / <a href="tel:<?php echo $telfff_final ?>"><?php echo $info->telfff ?></a> 
+                                                <?php endif ?>
+
+                                                <br><br>
+                                                <p><i class="fa fa-envelope-o"></i>E-mail:</p><br>
+
+                                                <a href="mailto:<?php echo $info->emaild ?>"><?php echo $info->emaild ?></a> <br>
+                                                 
+                                                 <?php if (!$info->emaildd==''): ?>
+                                                          <a href="mailto:<?php echo $info->emaildd ?>"><?php echo $info->emaildd ?></a>  
+                                                <?php endif ?>  
+
+                   
+                                            </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                   
+                          
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+
+                                <form class="conForms conforms2" method="post" action="#" id="contactForm" style="margin-top:40px">
+                                    <div class="col-md-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <input type="text" name="con_name" id="con_name" class="inputa required" placeholder="Nombre Completo"/>
+                                    </div>
+                                     <div class="col-md-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <input type="text" name="con_phone" id="con_phone" class="inputa required" placeholder="Teléfono"/>
+                                    </div>
+                                     <div class="col-md-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <input type="email" name="con_email" id="con_email" class="inputa required" placeholder="Email"/>
+                                    </div>
+                                      <div class="col-md-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <input type="text" name="con_empresa" id="con_empresa" class="inputa required" placeholder="Empresa donde trabaja"/>
+                                    </div>
+                                    <div class="col-md-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <input type="text" name="con_cargo" id="con_cargo" class="inputa required" placeholder="Cargo"/>
+                                    </div>
+                                    <div class="col-md-6 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <select name="pais" id="pais" class="inputa required"">
+                                            <option value="0" selected>País</option>
+                                           <option value="Venezuela" id="VE">Venezuela</option>
+                                                            <option value="Afganistán" id="AF">Afganistán</option>
+                                                            <option value="Albania" id="AL">Albania</option>
+                                                            <option value="Alemania" id="DE">Alemania</option>
+                                                            <option value="Andorra" id="AD">Andorra</option>
+                                                            <option value="Angola" id="AO">Angola</option>
+                                                            <option value="Anguila" id="AI">Anguila</option>
+                                                            <option value="Antártida" id="AQ">Antártida</option>
+                                                            <option value="Antigua y Barbuda" id="AG">Antigua y Barbuda</option>
+                                                            <option value="Antillas holandesas" id="AN">Antillas holandesas</option>
+                                                            <option value="Arabia Saudí" id="SA">Arabia Saudí</option>
+                                                            <option value="Argelia" id="DZ">Argelia</option>
+                                                            <option value="Argentina" id="AR">Argentina</option>
+                                                            <option value="Armenia" id="AM">Armenia</option>
+                                                            <option value="Aruba" id="AW">Aruba</option>
+                                                            <option value="Australia" id="AU">Australia</option>
+                                                            <option value="Austria" id="AT">Austria</option>
+                                                            <option value="Azerbaiyán" id="AZ">Azerbaiyán</option>
+                                                            <option value="Bahamas" id="BS">Bahamas</option>
+                                                            <option value="Bahrein" id="BH">Bahrein</option>
+                                                            <option value="Bangladesh" id="BD">Bangladesh</option>
+                                                            <option value="Barbados" id="BB">Barbados</option>
+                                                            <option value="Bélgica" id="BE">Bélgica</option>
+                                                            <option value="Belice" id="BZ">Belice</option>
+                                                            <option value="Benín" id="BJ">Benín</option>
+                                                            <option value="Bermudas" id="BM">Bermudas</option>
+                                                            <option value="Bhután" id="BT">Bhután</option>
+                                                            <option value="Bielorrusia" id="BY">Bielorrusia</option>
+                                                            <option value="Birmania" id="MM">Birmania</option>
+                                                            <option value="Bolivia" id="BO">Bolivia</option>
+                                                            <option value="Bosnia y Herzegovina" id="BA">Bosnia y Herzegovina</option>
+                                                            <option value="Botsuana" id="BW">Botsuana</option>
+                                                            <option value="Brasil" id="BR">Brasil</option>
+                                                            <option value="Brunei" id="BN">Brunei</option>
+                                                            <option value="Bulgaria" id="BG">Bulgaria</option>
+                                                            <option value="Burkina Faso" id="BF">Burkina Faso</option>
+                                                            <option value="Burundi" id="BI">Burundi</option>
+                                                            <option value="Cabo Verde" id="CV">Cabo Verde</option>
+                                                            <option value="Camboya" id="KH">Camboya</option>
+                                                            <option value="Camerún" id="CM">Camerún</option>
+                                                            <option value="Canadá" id="CA">Canadá</option>
+                                                            <option value="Chad" id="TD">Chad</option>
+                                                            <option value="Chile" id="CL">Chile</option>
+                                                            <option value="China" id="CN">China</option>
+                                                            <option value="Chipre" id="CY">Chipre</option>
+                                                            <option value="Ciudad estado del Vaticano" id="VA">Ciudad estado del Vaticano</option>
+                                                            <option value="Colombia" id="CO">Colombia</option>
+                                                            <option value="Comores" id="KM">Comores</option>
+                                                            <option value="Congo" id="CG">Congo</option>
+                                                            <option value="Corea" id="KR">Corea</option>
+                                                            <option value="Corea del Norte" id="KP">Corea del Norte</option>
+                                                            <option value="Costa del Marfíl" id="CI">Costa del Marfíl</option>
+                                                            <option value="Costa Rica" id="CR">Costa Rica</option>
+                                                            <option value="Croacia" id="HR">Croacia</option>
+                                                            <option value="Cuba" id="CU">Cuba</option>
+                                                            <option value="Dinamarca" id="DK">Dinamarca</option>
+                                                            <option value="Djibouri" id="DJ">Djibouri</option>
+                                                            <option value="Dominica" id="DM">Dominica</option>
+                                                            <option value="Ecuador" id="EC">Ecuador</option>
+                                                            <option value="Egipto" id="EG">Egipto</option>
+                                                            <option value="El Salvador" id="SV">El Salvador</option>
+                                                            <option value="Emiratos Arabes Unidos" id="AE">Emiratos Arabes Unidos</option>
+                                                            <option value="Eritrea" id="ER">Eritrea</option>
+                                                            <option value="Eslovaquia" id="SK">Eslovaquia</option>
+                                                            <option value="Eslovenia" id="SI">Eslovenia</option>
+                                                            <option value="España" id="ES">España</option>
+                                                            <option value="Estados Unidos" id="US">Estados Unidos</option>
+                                                            <option value="Estonia" id="EE">Estonia</option>
+                                                            <option value="c" id="ET">Etiopía</option>
+                                                            <option value="Ex-República Yugoslava de Macedonia" id="MK">Ex-República Yugoslava de Macedonia</option>
+                                                            <option value="Filipinas" id="PH">Filipinas</option>
+                                                            <option value="Finlandia" id="FI">Finlandia</option>
+                                                            <option value="Francia" id="FR">Francia</option>
+                                                            <option value="Gabón" id="GA">Gabón</option>
+                                                            <option value="Gambia" id="GM">Gambia</option>
+                                                            <option value="Georgia" id="GE">Georgia</option>
+                                                            <option value="Georgia del Sur y las islas Sandwich del Sur" id="GS">Georgia del Sur y las islas Sandwich del Sur</option>
+                                                            <option value="Ghana" id="GH">Ghana</option>
+                                                            <option value="Gibraltar" id="GI">Gibraltar</option>
+                                                            <option value="Granada" id="GD">Granada</option>
+                                                            <option value="Grecia" id="GR">Grecia</option>
+                                                            <option value="Groenlandia" id="GL">Groenlandia</option>
+                                                            <option value="Guadalupe" id="GP">Guadalupe</option>
+                                                            <option value="Guam" id="GU">Guam</option>
+                                                            <option value="Guatemala" id="GT">Guatemala</option>
+                                                            <option value="Guayana" id="GY">Guayana</option>
+                                                            <option value="Guayana francesa" id="GF">Guayana francesa</option>
+                                                            <option value="Guinea" id="GN">Guinea</option>
+                                                            <option value="Guinea Ecuatorial" id="GQ">Guinea Ecuatorial</option>
+                                                            <option value="Guinea-Bissau" id="GW">Guinea-Bissau</option>
+                                                            <option value="Haití" id="HT">Haití</option>
+                                                            <option value="Holanda" id="NL">Holanda</option>
+                                                            <option value="Honduras" id="HN">Honduras</option>
+                                                            <option value="Hong Kong R. A. E" id="HK">Hong Kong R. A. E</option>
+                                                            <option value="Hungría" id="HU">Hungría</option>
+                                                            <option value="India" id="IN">India</option>
+                                                            <option value="Indonesia" id="ID">Indonesia</option>
+                                                            <option value="Irak" id="IQ">Irak</option>
+                                                            <option value="Irán" id="IR">Irán</option>
+                                                            <option value="Irlanda" id="IE">Irlanda</option>
+                                                            <option value="Isla Bouvet" id="BV">Isla Bouvet</option>
+                                                            <option value="Isla Christmas" id="CX">Isla Christmas</option>
+                                                            <option value="Isla Heard e Islas McDonald" id="HM">Isla Heard e Islas McDonald</option>
+                                                            <option value="Islandia" id="IS">Islandia</option>
+                                                            <option value="Islas Caimán" id="KY">Islas Caimán</option>
+                                                            <option value="Islas Cook" id="CK">Islas Cook</option>
+                                                            <option value="Islas de Cocos o Keeling" id="CC">Islas de Cocos o Keeling</option>
+                                                            <option value="Islas Faroe" id="FO">Islas Faroe</option>
+                                                            <option value="Islas Fiyi" id="FJ">Islas Fiyi</option>
+                                                            <option value="Islas Malvinas Islas Falkland" id="FK">Islas Malvinas Islas Falkland</option>
+                                                            <option value="Islas Marianas del norte" id="MP">Islas Marianas del norte</option>
+                                                            <option value="Islas Marshall" id="MH">Islas Marshall</option>
+                                                            <option value="Islas menores de Estados Unidos" id="UM">Islas menores de Estados Unidos</option>
+                                                            <option value="Islas Palau" id="PW">Islas Palau</option>
+                                                            <option value="Islas Salomón" d="SB">Islas Salomón</option>
+                                                            <option value="Islas Tokelau" id="TK">Islas Tokelau</option>
+                                                            <option value="Islas Turks y Caicos" id="TC">Islas Turks y Caicos</option>
+                                                            <option value="Islas Vírgenes EE.UU." id="VI">Islas Vírgenes EE.UU.</option>
+                                                            <option value="Islas Vírgenes Reino Unido" id="VG">Islas Vírgenes Reino Unido</option>
+                                                            <option value="Israel" id="IL">Israel</option>
+                                                            <option value="Italia" id="IT">Italia</option>
+                                                            <option value="Jamaica" id="JM">Jamaica</option>
+                                                            <option value="Japón" id="JP">Japón</option>
+                                                            <option value="Jordania" id="JO">Jordania</option>
+                                                            <option value="Kazajistán" id="KZ">Kazajistán</option>
+                                                            <option value="Kenia" id="KE">Kenia</option>
+                                                            <option value="Kirguizistán" id="KG">Kirguizistán</option>
+                                                            <option value="Kiribati" id="KI">Kiribati</option>
+                                                            <option value="Kuwait" id="KW">Kuwait</option>
+                                                            <option value="Laos" id="LA">Laos</option>
+                                                            <option value="Lesoto" id="LS">Lesoto</option>
+                                                            <option value="Letonia" id="LV">Letonia</option>
+                                                            <option value="Líbano" id="LB">Líbano</option>
+                                                            <option value="Liberia" id="LR">Liberia</option>
+                                                            <option value="Libia" id="LY">Libia</option>
+                                                            <option value="Liechtenstein" id="LI">Liechtenstein</option>
+                                                            <option value="Lituania" id="LT">Lituania</option>
+                                                            <option value="Luxemburgo" id="LU">Luxemburgo</option>
+                                                            <option value="Macao R. A. E" id="MO">Macao R. A. E</option>
+                                                            <option value="Madagascar" id="MG">Madagascar</option>
+                                                            <option value="Malasia" id="MY">Malasia</option>
+                                                            <option value="Malawi" id="MW">Malawi</option>
+                                                            <option value="Maldivas" id="MV">Maldivas</option>
+                                                            <option value="Malí" id="ML">Malí</option>
+                                                            <option value="Malta" id="MT">Malta</option>
+                                                            <option value="Marruecos" id="MA">Marruecos</option>
+                                                            <option value="Martinica" id="MQ">Martinica</option>
+                                                            <option value="Mauricio" id="MU">Mauricio</option>
+                                                            <option value="Mauritania" id="MR">Mauritania</option>
+                                                            <option value="Mayotte" id="YT">Mayotte</option>
+                                                            <option value="México" id="MX">México</option>
+                                                            <option value="Micronesia" id="FM">Micronesia</option>
+                                                            <option value="Moldavia" id="MD">Moldavia</option>
+                                                            <option value="Mónaco" id="MC">Mónaco</option>
+                                                            <option value="Mongolia" id="MN">Mongolia</option>
+                                                            <option value="Montserrat" id="MS">Montserrat</option>
+                                                            <option value="Mozambique" id="MZ">Mozambique</option>
+                                                            <option value="Namibia" id="NA">Namibia</option>
+                                                            <option value="Nauru" id="NR">Nauru</option>
+                                                            <option value="Nepal" id="NP">Nepal</option>
+                                                            <option value="Nicaragua" id="NI">Nicaragua</option>
+                                                            <option value="Níger" id="NE">Níger</option>
+                                                            <option value="Nigeria" id="NG">Nigeria</option>
+                                                            <option value="Niue" id="NU">Niue</option>
+                                                            <option value="Norfolk" id="NF">Norfolk</option>
+                                                            <option value="Noruega" id="NO">Noruega</option>
+                                                            <option value="Nueva Caledonia" id="NC">Nueva Caledonia</option>
+                                                            <option value="Nueva Zelanda" id="NZ">Nueva Zelanda</option>
+                                                            <option value="Omán" id="OM">Omán</option>
+                                                            <option value="Panamá" id="PA">Panamá</option>
+                                                            <option value="Papua Nueva Guinea" id="PG">Papua Nueva Guinea</option>
+                                                            <option value="Paquistán" id="PK">Paquistán</option>
+                                                            <option value="Paraguay" id="PY">Paraguay</option>
+                                                            <option value="Perú" id="PE">Perú</option>
+                                                            <option value="Pitcairn" id="PN">Pitcairn</option>
+                                                            <option value="Polinesia francesa" id="PF">Polinesia francesa</option>
+                                                            <option value="Polonia" id="PL">Polonia</option>
+                                                            <option value="Portugal" id="PT">Portugal</option>
+                                                            <option value="Puerto Rico" id="PR">Puerto Rico</option>
+                                                            <option value="Qatar" id="QA">Qatar</option>
+                                                            <option value="Reino Unido" id="UK">Reino Unido</option>
+                                                            <option value="República Centroafricana" id="CF">República Centroafricana</option>
+                                                            <option value="República Checa" id="CZ">República Checa</option>
+                                                            <option value="República de Sudáfrica" id="ZA">República de Sudáfrica</option>
+                                                            <option value="República Democrática del Congo Zaire" id="CD">República Democrática del Congo Zaire</option>
+                                                            <option value="República Dominicana" id="DO">República Dominicana</option>
+                                                            <option value="Reunión" id="RE">Reunión</option>
+                                                            <option value="Ruanda" id="RW">Ruanda</option>
+                                                            <option value="Rumania" id="RO">Rumania</option>
+                                                            <option value="Rusia" id="RU">Rusia</option>
+                                                            <option value="Samoa" id="WS">Samoa</option>
+                                                            <option value="Samoa occidental" id="AS">Samoa occidental</option>
+                                                            <option value="San Kitts y Nevis" id="KN">San Kitts y Nevis</option>
+                                                            <option value="San Marino" id="SM">San Marino</option>
+                                                            <option value="San Pierre y Miquelon" id="PM">San Pierre y Miquelon</option>
+                                                            <option value="San Vicente e Islas Granadinas" id="VC">San Vicente e Islas Granadinas</option>
+                                                            <option value="Santa Helena" id="SH">Santa Helena</option>
+                                                            <option value="Santa Lucía" id="LC">Santa Lucía</option>
+                                                            <option value="Santo Tomé y Príncipe" id="ST">Santo Tomé y Príncipe</option>
+                                                            <option value="Senegal" id="SN">Senegal</option>
+                                                            <option value="Serbia y Montenegro" id="YU">Serbia y Montenegro</option>
+                                                            <option value="Sychelles" id="SC">Seychelles</option>
+                                                            <option value="Sierra Leona" id="SL">Sierra Leona</option>
+                                                            <option value="Singapur" id="SG">Singapur</option>
+                                                            <option value="Siria" id="SY">Siria</option>
+                                                            <option value="Somalia" id="SO">Somalia</option>
+                                                            <option value="Sri Lanka" id="LK">Sri Lanka</option>
+                                                            <option value="Suazilandia" id="SZ">Suazilandia</option>
+                                                            <option value="Sudán" id="SD">Sudán</option>
+                                                            <option value="Suecia" id="SE">Suecia</option>
+                                                            <option value="Suiza" id="CH">Suiza</option>
+                                                            <option value="Surinam" id="SR">Surinam</option>
+                                                            <option value="Svalbard" id="SJ">Svalbard</option>
+                                                            <option value="Tailandia" id="TH">Tailandia</option>
+                                                            <option value="Taiwán" id="TW">Taiwán</option>
+                                                            <option value="Tanzania" id="TZ">Tanzania</option>
+                                                            <option value="Tayikistán" id="TJ">Tayikistán</option>
+                                                            <option value="Territorios británicos del océano Indico" id="IO">Territorios británicos del océano Indico</option>
+                                                            <option value="Territorios franceses del sur" id="TF">Territorios franceses del sur</option>
+                                                            <option value="Timor Oriental" id="TP">Timor Oriental</option>
+                                                            <option value="Togo" id="TG">Togo</option>
+                                                            <option value="Tonga" id="TO">Tonga</option>
+                                                            <option value="Trinidad y Tobago" id="TT">Trinidad y Tobago</option>
+                                                            <option value="Túnez" id="TN">Túnez</option>
+                                                            <option value="Turkmenistán" id="TM">Turkmenistán</option>
+                                                            <option value="Turquía" id="TR">Turquía</option>
+                                                            <option value="Tuvalu" id="TV">Tuvalu</option>
+                                                            <option value="Ucrania" id="UA">Ucrania</option>
+                                                            <option value="Uganda" id="UG">Uganda</option>
+                                                            <option value="Uruguay" id="UY">Uruguay</option>
+                                                            <option value="Uzbekistán" id="UZ">Uzbekistán</option>
+                                                            <option value="Vanuatu" id="VU">Vanuatu</option>
+                                                            <option value="Venezuela" id="VE">Venezuela</option>
+                                                            <option value="Vietnam" id="VN">Vietnam</option>
+                                                            <option value="Wallis y Futuna" id="WF">Wallis y Futuna</option>
+                                                            <option value="Yemen" id="YE">Yemen</option>
+                                                            <option value="Zambia" id="ZM">Zambia</option>
+                                                            <option value="Zimbabue" id="ZW">Zimbabue</option>
+
+                                        </select>
+                                    </div>
+                                     <div class="col-md-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <select name="servicio" id="servicio" class="inputa required"">
+                                            <option value="-">Interesado en</option>
+                                            <option value="Comercializacion y Suministros">Comercialización y Suministros</option>
+                                            <option value="Business Process Outsourcing – BPO">Business Process Outsourcing – BPO</option>
+                                            <option value="Consultoría">Consultoría</option>
+                                            <option value="Formación & Desarrollo - iLernus">Formación & Desarrollo - iLernus</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-12 wow fadeInUp" data-wow-duration="700ms" data-wow-delay="350ms">
+                                        <textarea class="texputa required" id="con_message" name="con_message" placeholder="Comentarios"></textarea>
+                                    </div>
+                                     <div class="col-md-12">
+                                       <div class="g-recaptcha" data-sitekey="6Lc2jkIUAAAAANhksNuJwy6jnUx5Rl8dn9lFZ9bJ"></div>
+                                    </div>
+                                    <div class="col-md-12 text-right wow fadeInUp" data-wow-duration="700ms" data-wow-delay="300ms">
+                                        <button type="submit" class="btn-azul" id="con_submit">Enviar</button>
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+    <?php foreach ($equipo as $equipos): ?>
+        <div class="modal fade" id="<?php echo str_replace(" ", "", $equipos->nombre) ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+           <div class="modal-dialog">
+              <div class="modal-content" style="border-radius:0;background:#fff;border-top:3px solid #F28109">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="myModalLabel"><?php echo Html::img("logo.png",'','alt="" width="100px" style="margin-right:10px"') ?></h5>
+                  </div>
+                 <div class="modal-body" style="margin-top:0">
+                        <div class="funfacts2 text-center">
+                                <h3 class="separate" style="margin-bottom:10px;color:#2B3CA5">
+                                <?php echo $equipos->nombre ?>
+                                </h3>
+                        </div> 
+    
+                        <div class="color-gris">
+                             <?php echo $equipos->texto ?>
+                        </div>
+
+                    </div>
+                 
+                 <div class="modal-footer">
+                <a href="#" data-dismiss="modal" class="btn btn-warning" style="border:0;border-radius:0">Cerrar</a>
+             </div>
+              </div>
+           </div>
+        </div>
+    <?php endforeach ?>
+
+    <?php $c=1; ?>
+    <?php foreach ($soluciones as $solucion): ?>
+        <div class="col-md-12 modal fade" id="Servicio<?php echo $c ?>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+           <div class="modal-dialog" style="background:#fff">
+              <div class="modal-content" style="border-radius:0;background:#fff;border:0">
+                    <div class="col-md-12 modal-header" style="background:#fff;border-top:3px solid #F28109">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h5 class="modal-title" id="myModalLabel"><img src="img/favicon.png" alt="" width="20px" style="margin-right:10px">Soluciones</h5>
+                    </div>
+                    <div class="col-md-12 modal-body" style="margin-top:0;background:#fff">
+                        <div class="funfacts2 text-center color-gris">
+                                <h3 class="separate" style="margin-bottom:10px;">
+                                <small style="color:#AD2168;margin-bottom:0"><?php echo $solucion->titulo ?></small>
+                                </h3>
+                        </div>
+                        <div class="color-gris services-text"> 
+                            <?php echo $solucion->texto ?>
+
+                            <?php $items = Load::model("item")->find("item.soluciones_id=$solucion->id"); ?>
+
+                            <?php if (count($items)>=1): ?>
+                                 <ul style="padding-left:20px;margin-top:10px">
+                                <?php foreach ($items as $lista): ?>
+                                    <li>
+                                        <a data-toggle="collapse" href="#service<?php echo $lista->id ?>" aria-expanded="false" aria-controls="collapseExample">
+                                        <?php echo $lista->titulo?> 
+                                        </a>
+                                    </li>
+                                    <div class="collapse" id="service<?php echo $lista->id ?>" style="padding:10px;border:1px solid #eee">
+                                      <div class="card card-body">
+                                        <?php echo $lista->texto ?>
+                                      </div>
+                                    </div>
+                                <?php endforeach ?>
+                                </ul>
+                            <?php endif ?>   
+                        </div>
+                    </div>
+                 
+                    <div class="col-md-12 modal-footer" style="background:#fff">
+                        <a href="#" data-dismiss="modal" class="btn btn-warning" style="border:0;border-radius:0">Cerrar</a>
+                    </div>
+              </div>
+           </div>
+        </div>
+    <?php $c++ ?>
+    <?php endforeach ?>
+

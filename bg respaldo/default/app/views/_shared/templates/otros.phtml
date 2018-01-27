@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>BG Be Great</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<?php Tag::css('bootstrap') ?>
+<?php Tag::css('animate') ?>
+<?php Tag::css('font-awesome') ?>
+<?php Tag::css('fontello') ?>
+<?php Tag::css('essential_icon') ?>
+<?php Tag::css('prettyPhoto') ?>
+<?php Tag::css('animate') ?>
+<?php Tag::css('owl.carousel') ?>
+<?php Tag::css('owl.transitions') ?>
+<?php Tag::css('magnific-popup') ?>
+<?php Tag::css('settings') ?>
+<?php Tag::css('preset') ?>
+<?php Tag::css('style') ?>
+<?php Tag::css('blogpopup') ?>
+<?php Tag::css('responsive') ?>
+<link rel="icon"  type="image/png" href="img/favicon.png">
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<!-- Favicon Icon -->
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<?php echo Html::includeCss() ?> 
+</head>
+<body>
+  <div class="preloader">
+    <?php echo Html::img("images/spinningwheel.gif") ?>
+  </div> 
+  <div style="background:#2B3CA5;padding:5px">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <a href="#" style="color:#fff;font-size:12px;margin-right:5px"><img src="img/castellano.png" alt="" width="20px" style="margin-right:3px"> ES</a>
+          <a href="#" style="color:#fff;font-size:12px;margin-right:20px"><img src="img/ingles.png" alt="" width="20px" style="margin-right:3px"> EN</a>
+          <a href="#" style="color:#fff;font-size:12px;margin-right:20px"><i class="fa fa-phone" style="margin-right:3px"></i><?php echo $info->telfa ?> / <?php echo $info->telfb ?> </a>
+          <a href="mailto:<?php echo $info->correoa ?>" style="color:#fff;font-size:12px"><i class="fa fa-envelope-o" style="margin-right:3px"></i><?php echo $info->correoa ?></a>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div id="page" class="animat">
+      <?php View::partial('headertres') ?>
+          
+      <?php View::content() ?>
+
+      <?php View::partial('footer') ?>
+
+
+       
+  </div> 
+
+  <div class="social">
+    <ul style="padding:0">
+      <li><a href="<?php echo $info->face ?>" target="_blank" class="icon-facebook"></a></li>
+      <li><a href="<?php echo $info->twit ?>" target="_blank" class="icon-twitter"></a></li>
+      <li><a href="<?php echo $info->ins ?>" target="_blank" class="icon-instagram"></a></li>
+      <li><a href="<?php echo $info->linked ?>" target="_blank" class="icon-linkedin"></a></li>
+    </ul>
+  </div>
+  
+  <?php View::partial('modals') ?>
+  
+  <a id="backToTop" href="#"><i class="fa fa-angle-double-up"></i></a>
+    
+  <?php echo Tag::js('jquery') ?>
+  <?php echo Tag::js('bootstrap.min') ?>
+  <?php echo Tag::js('mixer') ?>
+  <?php echo Tag::js('wow.min') ?>
+  <?php echo Tag::js('jquery.appear') ?>
+  <?php echo Tag::js('prettyPhoto') ?>
+  <?php echo Tag::js('jquery.shuffle.min') ?>
+  <?php echo Tag::js('owl.carousel') ?>
+  <?php echo Tag::js('jquery.magnific-popup.min') ?>
+  <?php echo Tag::js('modernizr.custom') ?>
+  <?php echo Tag::js('classie') ?>
+  <?php echo Tag::js('blogpopup') ?>
+  <?php echo Tag::js('jquery.themepunch.tools.min') ?>
+  <?php echo Tag::js('jquery.themepunch.revolution.min') ?>
+  <?php echo Tag::js('theme') ?>
+  
+</body>
+</html>
+
+<script>
+    document.getElementById("textadjunto").style.color = 'red';
+
+    document.getElementById("textadjunto").innerHTML = 'Debe seleccionar un archivo';
+
+    $('#adjunto').on('change', function(){
+        document.getElementById("adjunto").value;
+        document.getElementById("textadjunto").innerHTML = 'Ya ha seleccionado un archivo';
+        document.getElementById("textadjunto").style.color = '#2B3CA5';
+    });
+</script>

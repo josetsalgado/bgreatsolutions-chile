@@ -1,0 +1,83 @@
+<header class="header home2" style="background:#fff">
+    <div class="sideMenuArea verticalMenu">
+        <a href="#" class="closeBtn">&times;</a>
+        <div class="logo">
+            <a href="../../#"><?php echo Html::img("bgblanco.png","","style='width:140px'") ?></a>
+        </div>
+        <nav class="mainMenu">
+            <ul>
+                <li class="scroll"><a href="../../#home">Inicio</a></li>
+                <li class="scroll has-child"><a href="#nosotros">Nosotros</a>
+                    <ul>
+                        <li><a href="../../#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="../../#trabajobg" >Trabaja en BG</a></li>
+                    </ul>
+                </li>                    
+                <li class="scroll"><a href="../../#soluciones">Soluciones</a></li>
+                <li class="scroll"><a href="#" data-toggle="modal" data-target="#Grupobg">Se parte de BG</a></li>
+                 <li class="scroll has-child"><a href="#clientes">Nuestros Clientes</a>
+                            <ul>
+                                <li><a href="../../#clientes">Clientes</a></li>
+                                <li><a href="../../#testimonios" >Testimonios</a></li>
+                            </ul>
+                        </li>
+                <li class="scroll"><a href="../../#blog">Blog</a></li>
+                <li class="scroll"><a href="../../#contact">Contáctanos</a></li>
+            </ul>
+        </nav>
+        <div class="clearfix"></div>
+        <div class="headerSocial">
+            <a class="fac" href="<?php echo $info->face ?>"><i class="fa fa-facebook"></i></a>   
+            <a class="twi" href="<?php echo $info->twit ?>"><i class="fa fa-twitter"></i></a>
+            <a class="ins" href="<?php echo $info->ins ?>"><i class="fa fa-instagram"></i></a>
+            <a class="lin" href="<?php echo $info->linked ?>"><i class="fa fa-linkedin"></i></a>
+                     
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-3">
+                <div class="logo">
+                    <a href="../../#"><?php echo Html::img("logo.png","","style='width:140px'") ?></a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-sm-9 horizontalmenu">
+                <div class="menuButtons2 hidden-lg hidden-md hidden-sm hidden">
+                    <a href="#">
+                        <?php echo Html::img("images/nav.png") ?>
+                        <?php echo Html::img("images/navActive.png","","class='hovImg2'") ?>
+                    </a>
+                </div>
+                <nav class="mainMenu">
+                    <ul>
+                        <li class="scroll"><a href="../../#home">Inicio</a></li>
+                        <li class="scroll has-child"><a href="../../#nosotros">Nosotros</a>
+                            <ul>
+                                <li><a href="../../#nosotros">Sobre Nosotros</a></li>
+                                <li><a href="../../#trabajobg">Trabaja en BG</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll"><a href="../../#soluciones">Soluciones</a></li>
+                        <li class="scroll"><a href="#" data-toggle="modal" data-target="#Grupobg">Se parte de BG</a></li>
+                        <li class="scroll has-child"><a href="#clientes">Nuestros Clientes</a>
+                            <ul>
+                                <li><a href="../../#clientes">Clientes</a></li>
+                                <li><a href="../../#testimonios" >Testimonios</a></li>
+                            </ul>
+                        </li>
+                        <li class="scroll"><a href="../../#blog">Blog</a></li>
+                        <li class="scroll"><a href="../../#contact">Contáctanos</a></li>
+                    </ul>
+                         
+                    <div class="menuButtons">
+                        <a href="#">
+                            <?php echo Html::img("images/navActive.png") ?>
+                            <?php echo Html::img("images/navActive.png","","class='hovImg'") ?>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div> 
+</header>

@@ -1,0 +1,28 @@
+<?php $info=Load::model("general")->find_by_id("1"); ?>
+    <footer class="footer footer2" id="footer" style="background:#1F1D1E;padding-top:40px;padding-bottom:40px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wow zoomIn" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-bottom:20px">
+                            <?php echo Html::img("bgblanco.png","",'width="50%"') ?>
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wow zoomIn footer-link" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-bottom:20px;margin-top:10px">
+                           <?php echo Html::link("mapa","Mapa del sitio") ?><br>
+                           <?php echo Html::link("terminos","Términos del servicio") ?><br>
+                           <?php echo Html::link("politicas","Políticas de privacidad") ?><br>
+                           <a href="#" data-toggle="modal" data-target="#Grupobg">Trabaja con nosotros</a>
+      
+                        </div>
+                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 wow zoomIn text-center red" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-top:15px;margin-bottom:20px">
+                            <a href="<?php echo $info->face ?>" target="_blank" class="icon-facebook"></a><a href="<?php echo $info->twit ?>" target="_blank" class="icon-twitter"></a><a href="<?php echo $info->ins ?>" target="_blank" class="icon-instagram"></a><a href="<?php echo $info->linked ?>" target="_blank" class="icon-linkedin"></a>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-duration="700ms" data-wow-delay="300ms" style="margin-top:30px">
+                            <div class="text-center" style="color:#eee">
+                                © <?php echo date("Y") ?> - BG Todos los Derechos Reservados.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>

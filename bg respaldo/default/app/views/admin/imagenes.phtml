@@ -1,0 +1,67 @@
+<div class="page static-page-tables"> 
+
+
+            <div class="bg-light lter b-b wrapper-md mb-10">
+                <div class="row">
+                    <div class="col-sm-6 col-xs-12">
+                        <h1 class="font-thin h3 m-0">Imagenes</h1>
+                        <small class="text-muted">Para utilizar usar url y colocar en editores</small> </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <?php echo Form::openMultipart() ?>
+                            <div class='custom-input-file' style="float:left"><input type="file" multiple="multiple" name="imagenes[]" style="margin-top:10px;">Seleccionar imagenes</div>
+                            <?php echo Form::hidden("imagenes",null,"asd") ?><br>
+                            
+                            <p class="col-sm-12" style="font-size:12px;margin-top:20px"><span class="label label-important">!</span> - Formatos permitidos <code>.JPG</code>, <code>.JPEG</code>, <code>.PNG</code></p>
+                            <br>
+
+                            <?php echo Form::submit("Agregar","class='btn btn-raised btn-primary' style='float:left;'") ?>
+                        <?php echo Form::close() ?>
+                    </div>
+                </div>
+            </div>
+
+            
+
+
+             <div class="row">
+                <div class="col-md-12">
+                    <section class="boxs ">
+                        <div class="boxs-body p-0">
+                            <div class="table-responsive">
+                                <table id="searchTextResults" data-page-size="5" data-filter="#filter"  class="footable table table-custom">
+                                    <thead>
+                                        <tr>
+                                      
+                                            <th>Imagen</th>
+                                            <th>Url</th>
+                                        </tr>
+                                    </thead>
+                                     <tbody>
+                                        <?php foreach ($imagenes as $values) {
+                                            echo
+                                            '
+                                             <tr>
+                                            <td>'.Html::img($values->img,"","style='width:70px;border-radius:0px !important'").'</td>
+                                            <td>http://bgreatsolutions.com/img/'.$values->img.'</td>
+
+                                            </tr>
+                                        ';
+                                        } ?>
+
+                                    </tbody>
+                                    <tfoot class="hide-if-no-paging">
+                                    <tr>
+                                        <td colspan="5" class="text-right"><ul class="pagination">
+                                            </ul></td>
+                                    </tr>
+                                </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>

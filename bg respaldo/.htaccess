@@ -1,0 +1,13 @@
+DirectoryIndex index.php
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteRule  ^$ default/public/    [L]
+    RewriteRule  (.*) default/public/$1 [L]
+</IfModule>
+# File modified on Thu Nov 23 10:39:48 2017 by server
+# For security reasons, mod_php is not used on this server. Use a php.ini file for php directives
+# php_value upload_max_filesize 999999M
+# For security reasons, mod_php is not used on this server. Use a php.ini file for php directives
+# php_value post_max_size 9999999M
+# For security reasons, mod_php is not used on this server. Use a php.ini file for php directives
+# php_value max_file_uploads  50

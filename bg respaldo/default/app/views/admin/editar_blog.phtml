@@ -1,0 +1,87 @@
+        <div class="page profile-page" style="padding-bottom:0">
+            <div class="pagecontent"> 
+                <div class="bg-light lter b-b wrapper-md mb-10">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="font-thin h3 m-0">BG</h1>
+                                <small class="text-muted">Bienvenido al administrador</small>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                     <div class="col-md-12"> 
+                        <section class="boxs boxs-simple"> 
+                            <div class="boxs-body p-0">
+                                <div role="tabpanel"> 
+                                    <ul class="nav nav-tabs tabs-dark-t" role="tablist">
+                                        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Editar Noticia</a></li>
+                                    </ul>
+                                    
+                                    <div class="tab-content">
+                                         <div role="tabpanel" class="tab-pane active" id="general">
+                                            <div class="wrap-reset">
+                                                <?php echo Form::openMultipart(); ?>
+                                                <form class="profile-settings">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Nuestras</strong> Noticias</h4>
+                                                            <p>Blog</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="first-name">Titulo *</label>
+                                                            <?php echo Form::text('blog.titulo','class="form-control" autofocus') ?>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                             <label for="first-name">Categoria *</label>
+                                                            <select name="blog[categoriablog_id]" class="form-control mb-10" data-parsley-trigger="change" data-parsley-id="1064">
+                                                                <?php $categ = Load::model("categoriablog")->find_by_id($blog->categoriablog_id); ?>
+                                                                <option value="<?php echo $categ->id ?>"><?php echo $categ->nombre ?></option>
+                                                                <option value="-">Seleccione..</option>
+                                                                <?php foreach ($categoriablog as $value) {
+                                                                    echo '<option value="'.$value->id.'">'.$value->nombre.'</option>';
+                                                                } ?>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                            <label for="last-name">Descripcion *</label>
+                                                            <?php echo Form::textarea('blog.descripcion','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12">
+                                                            <label for="facebook">Texto *</label>
+                                                            <?php echo Form::textarea('blog.texto','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12" style="margin-bottom:20px">
+                                                            <div class='custom-input-file'><?php echo Form::file('images',"","") ?>Imagen 300x388px</div>
+                                                        </div>
+                                                    </div>                                                
+                                                    <hr>
+                                                    <?php echo Form::hidden("blog.id") ?>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <?php echo Html::link("admin/banners","Cancelar","class='btn btn-raised btn-default'") ?>
+                                                            <button type="submit" value="submit" class="btn btn-raised btn-primary">Editar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <?php echo Form::close(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>  
+ <script>
+ CKEDITOR.replace( 'blog[texto]' );
+</script>

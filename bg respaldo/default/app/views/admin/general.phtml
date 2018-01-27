@@ -1,0 +1,236 @@
+        <div class="page profile-page" style="padding-bottom:0">
+            <div class="pagecontent"> 
+                <div class="bg-light lter b-b wrapper-md mb-10">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="font-thin h3 m-0">BG</h1>
+                                <small class="text-muted">Bienvenido al administrador</small>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                     <div class="col-md-12"> 
+                        <section class="boxs boxs-simple"> 
+                            <div class="boxs-body p-0">
+                                <div role="tabpanel"> 
+                                    <ul class="nav nav-tabs tabs-dark-t" role="tablist">
+                                        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Configuraciones Generales</a></li>
+                                    </ul>
+                                    
+                                    <div class="tab-content">
+                                         <div role="tabpanel" class="tab-pane active" id="general">
+                                            <div class="wrap-reset">
+                                                <?php echo Form::openMultipart(); ?>
+                                                <form class="profile-settings">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Datos</strong> Principales</h4>
+                                                            <p>Info de B&G</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-4">
+                                                            <label for="first-name">Telefono Principal *</label>
+                                                            <?php echo Form::text('general.telfa','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-4">
+                                                            <label for="last-name">Telefono Secundario</label>
+                                                            <?php echo Form::text('general.telfb','class="form-control"') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-4">
+                                                            <label for="email">E-mail *</label>
+                                                            <?php echo Form::email('general.correoa','class="form-control" required') ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Venezuela</strong></h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Telefono Principal *</label>
+                                                            <?php echo Form::text('general.telfc','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="last-name">Telefono Secundario</label>
+                                                            <?php echo Form::text('general.telfcc','class="form-control"') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 1*</label>
+                                                            <?php echo Form::email('general.emaila','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 2</label>
+                                                            <?php echo Form::email('general.emailaa','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="address1">Direccion *</label>
+                                                             <?php echo Form::textarea('general.direccion_vzla','class="form-control" required') ?>
+                                                        </div>                                                     
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Estados Unidos</strong></h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Telefono Principal *</label>
+                                                            <?php echo Form::text('general.telfd','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="last-name">Telefono Secundario</label>
+                                                            <?php echo Form::text('general.telfdd','class="form-control"') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 1*</label>
+                                                            <?php echo Form::email('general.emailb','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 2</label>
+                                                            <?php echo Form::email('general.emailbb','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="address1">Direccion *</label>
+                                                             <?php echo Form::textarea('general.direccion_usa','class="form-control" required') ?>
+                                                        </div>                                                     
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Panama</strong></h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Telefono Principal *</label>
+                                                            <?php echo Form::text('general.telfe','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="last-name">Telefono Secundario</label>
+                                                            <?php echo Form::text('general.telfee','class="form-control"') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 1*</label>
+                                                            <?php echo Form::email('general.emailc','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 2</label>
+                                                            <?php echo Form::email('general.emailcc','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="address1">Direccion *</label>
+                                                             <?php echo Form::textarea('general.direccion_panama','class="form-control" required') ?>
+                                                        </div>                                                     
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Chile</strong></h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="first-name">Telefono Principal *</label>
+                                                            <?php echo Form::text('general.telff','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="last-name">Telefono Secundario</label>
+                                                            <?php echo Form::text('general.telfff','class="form-control"') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 1*</label>
+                                                            <?php echo Form::email('general.emaild','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="email">E-mail 2</label>
+                                                            <?php echo Form::email('general.emaildd','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="address1">Direccion *</label>
+                                                             <?php echo Form::textarea('general.direccion_chile','class="form-control" required') ?>
+                                                        </div>                                                     
+                                                    </div>
+
+                        
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Redes</strong> Sociales</h4>
+                                                            <p>Conecta a tus clientes con tus redes sociales</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="facebook">Facebook *</label>
+                                                            <?php echo Form::text('general.face','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="dribbble">Twitter *</label>
+                                                            <?php echo Form::text('general.twit','class="form-control" required') ?>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="pinterest">Instagram *</label>
+                                                            <?php echo Form::text('general.ins','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="flickr">Linkedin *</label>
+                                                            <?php echo Form::text('general.linked','class="form-control" required') ?>
+                                                        </div>
+                                                    </div>                                                 
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Términos del servicio y</strong> Políticas de privacidad</h4>
+                                                        </div>
+                                                    </div>
+                                                     <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="address1">Términos *</label>
+                                                             <?php echo Form::textarea('general.terminos','class="form-control" required') ?>
+                                                        </div>                                                     
+
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="address1">Políticas *</label>
+                                                             <?php echo Form::textarea('general.politicas','class="form-control" required') ?>
+                                                        </div>                                                     
+                                                    </div>
+                                                    <hr>
+                                                    <?php echo Form::hidden('general.id') ?>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <?php echo Html::link("admin/config","Cancelar","class='btn btn-raised btn-default'") ?>
+                                                            <button type="submit" value="submit" class="btn btn-raised btn-primary">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <?php echo Form::close(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+ <script>
+ CKEDITOR.replace( 'general[terminos]' );
+ CKEDITOR.replace( 'general[politicas]' );
+</script>

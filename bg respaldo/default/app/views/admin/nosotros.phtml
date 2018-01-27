@@ -1,0 +1,114 @@
+        <div class="page profile-page" style="padding-bottom:0">
+            <div class="pagecontent"> 
+                <div class="bg-light lter b-b wrapper-md mb-10">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="font-thin h3 m-0">BG</h1>
+                                <small class="text-muted">Bienvenido al administrador</small>
+                            </div>
+                        </div>
+                    </div>
+                <div class="row">
+                     <div class="col-md-12"> 
+                        <section class="boxs boxs-simple"> 
+                            <div class="boxs-body p-0">
+                                <div role="tabpanel"> 
+                                    <ul class="nav nav-tabs tabs-dark-t" role="tablist">
+                                        <li role="presentation"><a href="#general" aria-controls="general" role="tab" data-toggle="tab">Nosotros</a></li>
+                                    </ul>
+                                    
+                                    <div class="tab-content">
+                                         <div role="tabpanel" class="tab-pane active" id="general">
+                                            <div class="wrap-reset">
+                                                <?php echo Form::openMultipart(); ?>
+                                                <form class="profile-settings">
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Video</strong> Inicial</h4>
+                                                            <p>Video promocional de la empresa</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="first-name">Url del video *</label>
+                                                            <?php echo Form::text('nosotros.url_video','class="form-control" autofocus required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="last-name">Imagen de fondo *</label>
+                                                             <div class='custom-input-file' style="float:left"><?php echo Form::file('images',"","") ?>Cambiar Imagen</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="first-name">Texto Inicial *</label>
+                                                            <?php echo Form::textarea('nosotros.text_right','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="last-name">Texto Secundario</label>
+                                                            <?php echo Form::textarea('nosotros.text_center','class="form-control"') ?>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <div class="row">
+                                                        <div class="form-group col-md-12 legend">
+                                                            <h4><strong>Misión, Visión </strong>y Valores</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="dribbble">Mision *</label>
+                                                            <?php echo Form::textarea('nosotros.mision','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-6">
+                                                            <label for="dribbble">Vision *</label>
+                                                            <?php echo Form::textarea('nosotros.vision','class="form-control" required') ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-12">
+                                                            <label for="dribbble">Valores *</label>
+                                                            <?php echo Form::textarea('nosotros.valores','class="form-control" required') ?>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr>
+
+                                                   
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-3">
+                                                            <?php echo Html::img($nosotros->img_valora,"","width='100%'") ?>
+                                                        </div>
+                                                        <div class="form-group col-sm-3">
+                                                            <label for="last-name">Imagen (debe ser cuadrada)*</label>
+                                                             <div class='custom-input-file' style="float:left"><?php echo Form::file('imagesa',"","") ?>Cambiar Imagen</div>
+                                                        </div>
+                                                        
+                                                    </div>
+
+
+
+                                                    
+                                                    <?php echo Form::hidden('nosotros.id') ?>
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <?php echo Html::link("admin/config","Cancelar","class='btn btn-raised btn-default'") ?>
+                                                            <button type="submit" value="submit" class="btn btn-raised btn-primary">Guardar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <?php echo Form::close(); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>  
+
+ <script>
+ CKEDITOR.replace( 'nosotros[text_right]' );
+ CKEDITOR.replace( 'nosotros[text_center]' );
+ CKEDITOR.replace( 'nosotros[texto_bienvenidos]' );
+ CKEDITOR.replace( 'nosotros[texto_nosotros]' );
+</script>
